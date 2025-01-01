@@ -90,6 +90,8 @@ def download_video():
     tk.Label(root, text="קישורים לסרטונים (מופרדים בפסיק):", anchor="e").pack(pady=5)
     entry_urls = tk.Entry(root, width=50, justify="right")
     entry_urls.pack(pady=5)
+    entry_urls.bind("<Control-c>", lambda event: entry_urls.event_generate("<<Copy>>"))
+    entry_urls.bind("<Control-v>", lambda event: entry_urls.event_generate("<<Paste>>"))
     create_context_menu(entry_urls)  # הוספת תפריט הקשר לשדה הטקסט
 
     tk.Label(root, text="בחר פורמט:", anchor="e").pack(pady=5)
