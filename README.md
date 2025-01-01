@@ -4,11 +4,10 @@ Simple Python program to download from Youtube (baed yt_dlp)
 ### Install
 Download&exctart .zip file from releases page.
 run CobaltYT_dlp.exe.
-if you want to run as .py script - need to add ffmpeg.
-download it from [here](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip), exctart, and copy this 3 files to folder with CobaltYT_dlp.py file:
-1. ffmpeg.exe
-2. ffplay.exe
-3. ffprobe.exe
+if you want to run as .py script - need to add ffmpeg&yt_dlp.
+download ffmpeg from [here](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip), exctart, and copy this ffmpeg.exe to folder with CobaltYT_dlp.py file.
+
+download yt_dlp.exe from [here](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe) and copy it to the folder.
 
 ### FAQ
 1. Why you baypass SSL verification?
