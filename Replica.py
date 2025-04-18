@@ -16,8 +16,17 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QThread, Signal, Slot, QSize
 from PySide6.QtGui import QIcon, QFont, QAction, QCursor
 
+if os.name == 'nt':  # Windows
+    APP_DATA_DIR = os.path.join(os.environ.get('APPDATA', ''), 'Replica')
+elif os.name == 'posix':  # Linux, Mac
+    APP_DATA_DIR = os.path.join(os.path.expanduser('~'), '.config', 'Replica')
+else:
+    APP_DATA_DIR = os.path.join(os.path.expanduser('~'), '.Replica')
 
-CONFIG_FILE = "config.json"
+if not os.path.exists(APP_DATA_DIR):
+    os.makedirs(APP_DATA_DIR)
+
+CONFIG_FILE = os.path.join(APP_DATA_DIR, "config.json")
 
 
 def load_config():
@@ -25,12 +34,14 @@ def load_config():
         try:
             with open(CONFIG_FILE, "r", encoding="utf-8") as f:
                 return json.load(f)
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, FileNotFoundError):
             return {}
     return {}
 
 
 def save_config(config):
+    os.makedirs(os.path.dirname(CONFIG_FILE), exist_ok=True)
+    
     with open(CONFIG_FILE, "w", encoding="utf-8") as f:
         json.dump(config, f, ensure_ascii=False, indent=4)
 
