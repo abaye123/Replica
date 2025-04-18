@@ -15,3 +15,7 @@ download yt_dlp.exe from [here](https://github.com/yt-dlp/yt-dlp/releases/latest
    
 2. I select high quailty, and get errors.
    **Answer**: you use filtered network, and it may cause errors in high quality downloads.
+
+TODO
+* ייבוא קובץ עם רשימת לינקים
+* שמירה רשימת הורדות להורדה בהמשך
